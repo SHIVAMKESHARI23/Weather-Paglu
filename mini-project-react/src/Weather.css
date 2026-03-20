@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Base body styles – will be overridden by theme classes */
+body {
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  color: #fff;
+  perspective: 1200px;
+  transition: background 0.5s ease;
+}
+
+/* Theme-specific gradients */
+body.theme-hot {
+  background: linear-gradient(-45deg, #ff6a00, #ee0979, #ff6a00, #f12711);
+  background-size: 400% 400%;
+}
+
+body.theme-cold {
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
+  background-size: 400% 400%;
+}
+
+body.theme-rain {
+  background: linear-gradient(-45deg, #2c3e50, #3498db, #2c3e50, #2980b9);
+  background-size: 400% 400%;
+}
+
+body.theme-normal {
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+  background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  transform-style: preserve-3d;
+}
+
+/* Navbar with 3D lift – subtle tint based on theme (optional) */
+.navbar {
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transform: translateZ(20px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.navbar:hover {
+  transform: translateZ(30px);
+}
+
+.navbar h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 20px;
+  gap: 30px;
+  transform-style: preserve-3d;
+}
+
+/* Footer with 3D lift */
+.footer {
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translateZ(15px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.footer:hover {
+  transform: translateZ(25px);
+}
+
+.footer p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.footer span {
+  font-weight: 600;
+  color: #00d2ff;
+  text-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
+}
+
+.social-handle {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.social-handle a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+  font-weight: 600;
+}
+
+.social-handle a:hover {
+  color: #00d2ff;
+  text-shadow: 0 0 8px #00d2ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar h1 {
+    font-size: 1.8rem;
+  }
+  .content-wrapper {
+    padding: 20px;
+  }
+}

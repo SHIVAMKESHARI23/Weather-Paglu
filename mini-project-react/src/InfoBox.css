@@ -1,0 +1,66 @@
+.InfoBox {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.InfoBox.glass-panel {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(10px);
+}
+
+.InfoBox.glass-panel:hover {
+  transform: translateZ(25px) scale(1.02);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  perspective: 1000px;
+}
+
+.weather-card {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  transform: rotateX(2deg) rotateY(2deg);
+}
+
+.weather-card:hover {
+  transform: rotateY(12deg) rotateX(8deg) scale(1.05);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+.weather-card .MuiCard-root {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.weather-card .MuiCardContent-root {
+  padding: 24px;
+}
+
+.weather-card .MuiTypography-root {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .weather-card:hover {
+    transform: rotateY(6deg) rotateX(4deg) scale(1.02);
+  }
+  .InfoBox.glass-panel {
+    padding: 20px;
+    width: 90%;
+  }
+}
